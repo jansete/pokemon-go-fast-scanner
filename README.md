@@ -1,10 +1,29 @@
-1. Execute Selenium
+1. Install Java & Node
+
+sudo apt-get update
+sudo apt-get install default-jre
+
+curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
+2. Install Chrome
+
+sudo apt-get install libxss1 libappindicator1 libindicator7
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo dpkg -i google-chrome*.deb
+sudo apt-get install -f
+
+3. Install dependencies
+
+npm install
+
+4. Execute Selenium
 
 java -jar ./lib/selenium-server-standalone-2.44.0.jar
 
-2. Create zones.json file in the project root like zones.example.json with your zones
+5. Create zones.json file in the project root like zones.example.json with your zones
 
-3. Configure your crontab to execute app.js every 5 min
+6. Configure your crontab to execute app.js every 5 min
 
 crontab -e
 
