@@ -8,6 +8,7 @@ var fs = require('fs');
 var scanZones = function(zones) {
   var driver = new webdriver.Builder()
       .forBrowser('firefox')
+      .usingServer('http://127.0.0.2:4444/wd/hub')
       .build();
   var minIter = 1;
   var mins = 0;
