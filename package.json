@@ -1,0 +1,10 @@
+{
+  "name": "pokemon-go-jansete-tools",
+  "version": "0.0.1",
+  "dependencies": {
+    "selenium-webdriver": "^2.44.0"
+  },
+  "scripts": {
+    "start": "node app.js"
+  }
+}
