@@ -74,6 +74,8 @@ function splitZones(zones, limit) {
 
 function createQueues(zones, limit) {
   var queues = [];
+  var i = 0;
+  var j = 0;
 
   Object.keys(zones).forEach(function(key) {
     if (j == 0) {
