@@ -1,12 +1,14 @@
 var util = require('util');
-var By = require('selenium-webdriver').By;
-var until = require('selenium-webdriver').until;
-var chrome = require('selenium-webdriver/chrome');
+var webdriver = require('selenium-webdriver'),
+    By = webdriver.By,
+    until = webdriver.until;
 var fs = require('fs');
 
 // Async Function
 var scanZones = function(zones) {
-  var driver = new chrome.Driver();
+  var driver = new webdriver.Builder()
+      .forBrowser('firefox')
+      .build();
   var minIter = 1;
   var mins = 0;
 
