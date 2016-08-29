@@ -27,6 +27,9 @@ java -jar ./lib/selenium-server-standalone-2.44.0.jar
 
 5. Create zones.json file in the project root like zones.example.json with your zones
 
+6. Configure selenium as service
+daemon --name="selenium_service" --output=log.txt sh selenium.sh
+
 6. Configure your crontab to execute app.js every 5 min
 
 crontab -e
