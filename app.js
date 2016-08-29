@@ -1,3 +1,9 @@
+// @ todo use args from command line with minimist
+var mode = 'server'; // Or Desktop
+var browser = 'chrome';
+if (mode == 'server') {
+  browser = 'phantomjs';
+}
 var util = require('util');
 var webdriver = require('selenium-webdriver'),
     By = webdriver.By,
@@ -7,10 +13,9 @@ var fs = require('fs');
 // Async Function
 var scanZones = function(zones) {
   var driver = new webdriver.Builder()
-      .forBrowser('firefox')
-      .usingServer('http://127.0.0.2:4444/wd/hub')
+      .forBrowser(browser)
       .build();
-  var minIter = 1;
+  var minIter = 2;
   var mins = 0;
 
   zones.forEach(function(zone) {

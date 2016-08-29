@@ -3,15 +3,19 @@
 sudo apt-get update
 sudo apt-get install default-jre
 
-curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
-2. Install Chrome
+2. Install Chrome if run with UI
 
 sudo apt-get install libxss1 libappindicator1 libindicator7
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo dpkg -i google-chrome*.deb
 sudo apt-get install -f
+
+3. Install phantomjs if run without UI
+
+npm install -g phantomjs
 
 3. Install dependencies
 
