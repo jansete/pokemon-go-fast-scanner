@@ -79,9 +79,9 @@ function createQueues(zones, limit) {
 
   Object.keys(zones).forEach(function(key) {
     if (j == 0) {
-      pieces[i] = [];
+      queues[i] = [];
     }
-    pieces[i][j] = zones[key];
+    queues[i][j] = zones[key];
     i++;
     if (i == limit) {
       i = 0;
