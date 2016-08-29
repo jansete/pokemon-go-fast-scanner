@@ -15,7 +15,7 @@ var scanZones = function(zones) {
   var driver = new webdriver.Builder()
       .forBrowser(browser)
       .build();
-  var minIter = 3;
+  var minIter = 3.5;
   var mins = 0;
 
   zones.forEach(function(zone) {
@@ -44,7 +44,7 @@ var scanZones = function(zones) {
 var largeScanner = fs.readFileSync('src/largeScanner.js', 'utf8');
 
 var zones = JSON.parse(fs.readFileSync('zones.json', 'utf8'));
-var pieces = splitZones(zones, 3);;
+var pieces = createQueues(zones, 5);
 
 pieces.forEach(function(splitted_zones) {
   scanZones(splitted_zones);
@@ -70,6 +70,24 @@ function splitZones(zones, limit) {
   });
 
   return pieces;
+}
+
+function createQueues(zones, limit) {
+  var queues = [];
+
+  Object.keys(zones).forEach(function(key) {
+    if (j == 0) {
+      pieces[i] = [];
+    }
+    pieces[i][j] = zones[key];
+    i++;
+    if (i == limit) {
+      i = 0;
+      j++;
+    }
+  });
+
+  return queues;
 }
 
 function executeScanner(zone, driver) {
