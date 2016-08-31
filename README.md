@@ -1,5 +1,6 @@
 # Pokemon Go Fast Scanner
 **Related Project**
+
 For manage zones to use in this project:
 
 https://github.com/jansete/pokemon-go-buddy-tools
