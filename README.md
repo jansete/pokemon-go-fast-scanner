@@ -1,4 +1,11 @@
 # Pokemon Go Fast Scanner
+**Related Project**
+For manage zones to use in this project:
+
+https://github.com/jansete/pokemon-go-buddy-tools
+
+Not work yet. We are working on it.
+
 **1. Install Java & Node**
 ```
 sudo apt-get update
