@@ -29,6 +29,8 @@ function getMasillas() {
     { id: 104, name: 'Cubone'},
     { id: 111, name: 'Rhyhorn'},
     { id: 118, name: 'Goldeen'},
+    { id: 120, name: 'Staryu'},
+    { id: 133, name: 'Eevee'},
     { id: 138, name: 'Omanyte'},
     { id: 140, name: 'Kabuto'}
   ];
