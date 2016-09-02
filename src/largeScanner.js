@@ -20,8 +20,8 @@ function largeScan(lat, lng, desv, iters) {
 
 function executeScan(desv, iters) {
   var coordinates = getLatLng();
-  var lat = parseFloat(coordinates.lat);
-  var lng = parseFloat(coordinates.lng);
+  var lat = parseFloat(coordinates[0]);
+  var lng = parseFloat(coordinates[1]);
   desv || (desv = 0.0075);
   iters || (iters = 35);
   largeScan(lat, lng, desv, iters);
