@@ -123,8 +123,9 @@ function createQueues(zones, limit) {
 }
 
 function executeScanner(zone, driver) {
-  console.log(Date() + ' - Scanning in ' + zone.name + ' - Owner: ' + zone.user.full_name);
-  driver.get('https://fastpokemap.se/#' + zone.geo_lat + ',' + zone.geo_lng);
+  var fastpokemapUrl = 'https://fastpokemap.se/#' + zone.geo_lat + ',' + zone.geo_lng;
+  console.log(Date() + ' - Scanning in ' + zone.name + ' - URL: ' + fastpokemapUrl + ' - Owner: ' + zone.user.full_name);
+  driver.get(fastpokemapUrl);
   driver.executeScript(largeScanner);
 }
 
