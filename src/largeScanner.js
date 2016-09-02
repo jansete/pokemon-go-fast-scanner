@@ -1,5 +1,7 @@
-function getLatLng(marker) {
-  return marker._latlng;
+function getLatLng() {
+  var hash = location.hash;
+  var coordinates = hash.replace("#", "");
+  return coordinates.split(",");
 }
 
 function largeScan(lat, lng, desv, iters) {
@@ -17,7 +19,7 @@ function largeScan(lat, lng, desv, iters) {
 }
 
 function executeScan(desv, iters) {
-  var coordinates = getLatLng(marker);
+  var coordinates = getLatLng();
   var lat = coordinates.lat;
   var lng = coordinates.lng;
   desv || (desv = 0.0075);

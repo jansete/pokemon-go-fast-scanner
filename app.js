@@ -9,6 +9,7 @@ var webdriver = require('selenium-webdriver'),
     By = webdriver.By,
     until = webdriver.until;
 var fs = require('fs');
+var largeScanner = fs.readFileSync('src/largeScanner.js', 'utf8');
 
 // Async Function
 var scanZones = function(zones) {
@@ -40,18 +41,47 @@ var scanZones = function(zones) {
   }, miliSecs);
 };
 
-// Logic
-var largeScanner = fs.readFileSync('src/largeScanner.js', 'utf8');
-
-var zones = JSON.parse(fs.readFileSync('zones.json', 'utf8'));
-var pieces = createQueues(zones, 5);
-
-pieces.forEach(function(splitted_zones) {
-  scanZones(splitted_zones);
-});
-
+// App execution
+main();
 
 // Functions
+function main() {
+  var http = require('http');
+  var url = getZonesUrl();
+
+  http.get(url, function(res){
+    var body = '';
+
+    res.on('data', function(chunk){
+      body += chunk;
+    });
+
+    res.on('end', function(){
+      var response = JSON.parse(body);
+      var zones = response.places;
+
+      if (zones != "undefined" && zones.length) {
+        var pieces = createQueues(zones, 5);
+
+        pieces.forEach(function(splitted_zones) {
+          scanZones(splitted_zones);
+        });
+      }
+    });
+  }).on('error', function(e){
+    console.log("Got an error: ", e);
+  });
+}
+
+function getZonesUrl() {
+  var config = getConfig();
+  return config.endpoint + '/v' + config.version + '/places';
+}
+
+function getConfig() {
+  return JSON.parse(fs.readFileSync('config.json', 'utf8'));
+}
+
 function splitZones(zones, limit) {
   var pieces = [];
   var i = 0;
@@ -93,12 +123,11 @@ function createQueues(zones, limit) {
 }
 
 function executeScanner(zone, driver) {
-  console.log(Date() + ' - Scanning in ' + zone.desc + ' - Owner: ' + zone.owner);
-  driver.get('https://fastpokemap.se/#' + zone.lat + ',' + zone.long);
+  console.log(Date() + ' - Scanning in ' + zone.name + ' - Owner: ' + zone.user.full_name);
+  driver.get('https://fastpokemap.se/#' + zone.geo_lat + ',' + zone.geo_lng);
   driver.executeScript(largeScanner);
 }
 
 function getMilisSecs(mins) {
   return mins * 60 * 1000;
 }
-

@@ -38,7 +38,7 @@ npm install
 java -jar ./lib/selenium-server-standalone-2.44.0.jar
 ```
 
-**5. Create zones.json file in the project root like zones.example.json with your zones**
+**5. Create config.json file in the project root like config.example.json with your endpoint**
 
 **6. Configure selenium as service**
 ```
