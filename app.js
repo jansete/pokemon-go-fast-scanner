@@ -17,7 +17,7 @@ var scanZones = function(zones) {
       .forBrowser(browser)
       .build();
   var minIter = 3.5;
-  var mins = 0;
+  var mins = 0.5;
 
   zones.forEach(function(zone) {
     if (mins > 0) {
