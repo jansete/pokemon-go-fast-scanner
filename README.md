@@ -52,7 +52,11 @@ crontab -e
 ```
 Put in crontab file the following line, replace your app path.
 ```
-*/5 * * * * node /home/jansete/app.js
+*/5 * * * * node /home/jansete/pokemon-go-fast-scanner/app.js
+```
+Or you can use shell script to add more operations, example included.
+```
+*/5 * * * * sh /home/jansete/pokemon-go-fast-scanner/app.sh
 ```
 
 **Zones json example**
