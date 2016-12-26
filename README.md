@@ -41,9 +41,15 @@ java -jar ./lib/selenium-server-standalone-2.44.0.jar
 **5. Create config.json file in the project root like config.example.json with your endpoint**
 
 **6. Configure selenium as service**
+More daemon info: http://libslack.org/daemon/README
 ```
 sudo apt-get install daemon
 daemon --name="selenium_service" --output=log.txt sh selenium.sh
+```
+Other tips for daemon package:
+```
+daemon --name="selenium_service" --running # Check if daemon is running
+daemon --name="selenium_service" --stop # Stop daemon
 ```
 
 **7. Configure your crontab to execute app.js every 5 min**
