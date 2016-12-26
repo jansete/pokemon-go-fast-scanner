@@ -4,7 +4,7 @@ function getLatLng() {
   return coordinates.split(",");
 }
 
-function largeScan(lat, lng, desv, iters) {
+function refreshCache(lat, lng, desv, iters) {
   var desvIter = desv / iters;
   var minLat = lat - desv;
   var maxLat = lat + desv;
@@ -13,18 +13,18 @@ function largeScan(lat, lng, desv, iters) {
 
   for (i = minLat; i < maxLat; i = i + desvIter) {
     for (j = minLng; j < maxLng; j = j + desvIter) {
-      getPokemon(i, j);
-    } 
+      loadCache({lat: i, lng: j});
+    }
   }
 }
 
-function executeScan(desv, iters) {
+function executeRefresh(desv, iters) {
   var coordinates = getLatLng();
   var lat = parseFloat(coordinates[0]);
   var lng = parseFloat(coordinates[1]);
-  desv || (desv = 0.0075);
-  iters || (iters = 35);
-  largeScan(lat, lng, desv, iters);
+  desv || (desv = 0.01);
+  iters || (iters = 20);
+  refreshCache(lat, lng, desv, iters);
 }
 
-executeScan();
+executeRefresh();

@@ -67,5 +67,5 @@ Or you can use shell script to add more operations, example included.
 ```
 
 ## Next steps:
-- Add refresh cache script
+- Add refresh cache script (added but not working yet)
 - Add gulp
