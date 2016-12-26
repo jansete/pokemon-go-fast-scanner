@@ -5,7 +5,7 @@ For manage zones to use in this project:
 
 https://github.com/jansete/pokemon-go-buddy-tools
 
-Not work yet. We are working on it.
+This was a tool to scan faster with fastpokemap.se project (now the project is unavailable). Thanks for your poke-effort.
 
 **1. Install Java & Node**
 ```
