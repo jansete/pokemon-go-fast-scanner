@@ -66,6 +66,12 @@ Or you can use shell script to add more operations, example included.
 }
 ```
 
+**Mobile**
+You can change or minify (https://jscompress.com/) one script and save as web browser bookmark to use in your phones. URL example:
+```
+javascript:function getLatLong().....and more happy minified script
+```
+
 ## Next steps:
 - Add refresh cache script (added but not working yet)
 - Add desktop alert (added but not working yet)
