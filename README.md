@@ -54,5 +54,14 @@ Put in crontab file the following line, replace your app path.
 ```
 */5 * * * * node /home/jansete/app.js
 ```
+
+**Zones json example**
+```
+{
+  "1": {"lat": 40.45040881142351, "long": -3.675613403320313, "desc": "Madrid - Parque de Berlín", "owner": "Jansete"}
+}
+```
+
 ## Next steps:
+- Add refresh cache script
 - Add gulp
